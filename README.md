@@ -64,7 +64,7 @@ To run the Jupyter notebook and execute the code:
 
 ## Data
 
-It is abstracted as it is the real GST data given by GST Concile for GSTIN Hackathon. The data used in this project includes:
+It is abstracted as it is the real GST data given by `GST Council` for `GSTIN Hackathon`. The data used in this project includes:
 
 - `X_Train_Data_Input.csv`: Training data features
 - `X_Test_Data_Input.csv`: Test data features
