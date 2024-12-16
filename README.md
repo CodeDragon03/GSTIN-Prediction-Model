@@ -71,6 +71,7 @@ The data used in this project includes:
 - `Y_Train_Data_Target.csv`: Training data target
 - `Y_Test_Data_Target.csv`: Test data target
 
+It is abstracted as it is the real GST data given by GST Concile for GSTIN Hackathon 
 ---
 
 ## Scaling and Rounding
