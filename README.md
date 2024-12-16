@@ -169,7 +169,7 @@ The final evaluation metrics on the test set are as follows:
   - **Test**: 97%
 
 - **Loss**
-  - **Train**: 6%
+  - **Train**: 5%
   - **Test**: 7%
 
 ---
