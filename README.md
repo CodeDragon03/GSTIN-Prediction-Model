@@ -101,29 +101,35 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.initializers import HeNormal
 
-# Model architecture
-input_layer = Input(shape=(X_train.shape[1],))
+# Model architecture 
 
-x = Dense(64, activation=activation, kernel_initializer=initializer)(input_layer)
+input = Input(shape=(X_train.shape[1],))
+
+x = Dense(64, activation=activation, kernel_initializer=initializer)(input)
 x = PReLU()(x)
 x = BatchNormalization()(x)
 x = Dropout(rate)(x)
 
-x = Dense(32, activation=activation, kernel_initializer=initializer)(x)
-x = PReLU()(x)
-x = BatchNormalization()(x)
-x = Dropout(rate)(x)
 
 x = Dense(64, activation=activation, kernel_initializer=initializer)(x)
 x = PReLU()(x)
 x = BatchNormalization()(x)
 x = Dropout(rate)(x)
 
-output_layer = Dense(2, activation='softmax')(x)
 
-model = Model(inputs=input_layer, outputs=output_layer)
+x = Dense(64, activation=activation, kernel_initializer=initializer)(x)
+x = PReLU()(x)
+x = BatchNormalization()(x)
+x = Dropout(rate)(x)
 
-model.compile(optimizer=opt, loss=loss, metrics=['accuracy', 'Precision', 'Recall', 'AUC'])
+
+x = Flatten()(x)
+
+output = Dense(2, activation='softmax')(x)
+
+model = Model(inputs=input, outputs=output)
+
+model.compile(optimizer=opt, loss=loss, metrics=['accuracy', 'precision', 'recall', 'auc', 'f1_score', 'mse'])
 ```
 
 ---
