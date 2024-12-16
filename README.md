@@ -46,6 +46,9 @@ source .venv/bin/activate
 
 # Install the required packages
 pip install numpy tensorflow matplotlib pandas scikit-learn seaborn imblearn
+
+# Unzip the data file
+tar -xf data.zip
 ```
 
 ---
