@@ -14,7 +14,7 @@ This project involves building a prediction model using GST data. It includes da
 - [Results](#results)
   - [Model Performance](#model-performance)
   - [Evaluation Metrics](#evaluation-metrics)
-  - [Feature Importance](#feature-importance)
+  - [Confusion Matrix](#confusion-matrix)
 - [Creating Issues](#creating-issues)
 - [Contributing](#contributing)
   - [Contribution Guidelines](#contribution-guidelines)
@@ -171,6 +171,39 @@ The final evaluation metrics on the test set are as follows:
 - **Loss**
   - **Train**: 5%
   - **Test**: 7%
+
+---
+
+### Confusion Matrix
+
+Below is the confusion matrix showing the model's performance on the test set:
+
+```python
+# Predicting the target variable
+Y_pred = model.predict(X_test)
+
+Y_pred = np.argmax(Y_pred, axis=1)
+
+Y_test = np.argmax(Y_test, axis=1)
+
+# Creating a confusion matrix
+
+cm = confusion_matrix(Y_test, Y_pred)
+
+plt.figure(figsize=(10, 5))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=['0', '1'], yticklabels=['0', '1'])
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+
+plt.savefig(os.path.join(confusion_matrix_path, 'confusion_matrix.png'))
+
+print(f'The confusion matrix has been saved successfully at {confusion_matrix_path}')
+
+plt.show()
+```
+
+![Confusion Matrix](./info/confusion_matrix/confusion_matrix.png)
 
 ---
 
