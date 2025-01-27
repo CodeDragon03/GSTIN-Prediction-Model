@@ -123,9 +123,6 @@ x = PReLU()(x)
 x = BatchNormalization()(x)
 x = Dropout(rate)(x)
 
-
-x = Flatten()(x)
-
 output = Dense(2, activation='softmax')(x)
 
 model = Model(inputs=input, outputs=output)
